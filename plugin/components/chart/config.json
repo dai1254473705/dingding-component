@@ -9,6 +9,7 @@
     "useStandardContainer": true,
     "containerType": "doubleHeight"
   },
+  "setters":[],
   "props": {
   }
 }

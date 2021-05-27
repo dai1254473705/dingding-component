@@ -4,7 +4,8 @@
     "description": "标准化小组件库",
     "main": "app.js",
     "scripts": {
-        "dev:appx2": "cube build --native=false --webng=appxng --appxcompatible --no-prod --watch"
+        "dev:appx2": "cube build --native=false --webng=appxng --appxcompatible --no-prod --watch",
+        "test": "node ./scripts/index.js -d ../plugin/components"
     },
     "repository": {
         "type": "git",
