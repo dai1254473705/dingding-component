@@ -1,0 +1,14 @@
+{
+  "pluginComponentName": "chart",
+  "name": "我的图表示例组件",
+  "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01Isd9Ds261lXlQ6okk_!!6000000007602-2-tps-60-60.png",
+  "previewUrl": "https://img.alicdn.com/tfs/TB1KcAWdrj1gK0jSZFOXXc7GpXa-750-100.jpg",
+  "previewHeight": 200,
+  "quickSetting": {
+    "useStandardHead": true,
+    "useStandardContainer": true,
+    "containerType": "doubleHeight"
+  },
+  "props": {
+  }
+}

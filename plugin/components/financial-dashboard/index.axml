@@ -1,4 +1,4 @@
-<view class="financial-dashbord" style="marginBottom:{{componentProps.marginBottom}}px">
+<view class="financial-dashbord {{mode}}">
   <view class="header">
   财务看板-isMobile:{{isMobile}}-clickTime:{{clickTime}}-platform:{{platform}}
   </view>
@@ -9,14 +9,14 @@
         <text class="text-money">¥22，244.00</text>
         <text class="text-demo-text">金额（元）</text>
       </view>
-      <view class="finance-item" onTap="handleLink">
+      <!-- <view class="finance-item" onTap="handleLink">
         <text class="text-demo-text">应收账款</text>
         <text class="text-money">¥22，244.00</text>
         <text class="text-demo-text">金额（元）</text>
-      </view>
+       </view>-->
     </view>
     <view class="finance-right">
-      <view class="finance-item" onTap="handleLink">
+      <!-- <view class="finance-item" onTap="handleLink">
         <text class="text-demo-text">应收账款</text>
         <text class="text-money">¥22，244.00</text>
         <text class="text-demo-text">金额（元）</text>
@@ -24,12 +24,12 @@
           <text class="text-money">现金：22，244.00</text>
           <text class="text-money">银行：=244.00</text>
         </view>
-      </view>
+       </view>-->
     </view>
   </view>
    <view>
   <view>经营状况</view>
-  <view class="f2-chart" onTap="handleChart">
+  <view class="f2-chart">
     <f2 onInit="onInitChart"></f2>
   </view>
   <textarea name="textarea"placeholder="Please input something"  value={{result}} />

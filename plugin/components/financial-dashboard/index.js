@@ -1,6 +1,5 @@
 import { getSdk, getLifecycleSdk, } from '../../api/sdk';
-// import 'dingtalk-jsapi/entry/union';
-// import alert from 'dingtalk-jsapi/api/device/notification/alert';
+const PROMOTION_STATE_TRYOUT = 'STANDARD_WORKTAB';
 
 Component({
   data: {
@@ -25,56 +24,55 @@ Component({
 
     },
     config: {
-      corpId:'123', // 可以通过this.props.config.corpId 获取当前工作台用户的企业corpId
+      corpId:'', // 可以通过this.props.config.corpId 获取当前工作台用户的企业corpId
     }
   },
-  didMount() {
+  async didMount() {
     getLifecycleSdk().didMount(this.props.componentName);
     // 这里读到的props，和config.json文件中定义的props相对应，详见config.json文件说明
     const props = this.props.componentProps;
     // 业务代码写到下方
+    this.onShowListener = () => {
+      console.log('监听到onShow');
+      // 一般onShow里可以进行刷新接口数据等操作-注意后端别被打爆
+    };
+    getSdk().listenCustomEvent('onShow', this.onShowListener);
     console.log('this.props',this.props);
     this.setData({
       myprops:this.props,
       platform: this.props.config.platform,
     });
-
-    console.log(this.is);
-    console.log(this.$page);
-    console.log(this.$id);
-
-    // this.props.componentProps.getData1 是个 object，里面包含了 apiKey 以及其他开发者不需要关心的信息，
-    // 只要将这个 object 作为sdk.request的第一个参数传入即可
-    // const data = await getSdk().request(this.props.componentProps.getData1, { param1: 'test', param2: 3 });
     this.getData();
   },
-  didUpdate() {
+  didUpdate(prevProps) {
     getLifecycleSdk().didUpdate(this.props.componentName);
     // 业务代码写到下方
-
-
+    // 营销态的数据是props.componentProps.promotionState，注意嵌套层级
+    if (prevProps.componentProps.promotionState !== this.props.componentProps.promotionState) {
+      // 营销态状态变更，一般变更后也可刷新插件数据
+      // 变更频率不会很高，只会在营销态和非营销态切换时用到
+      console.log('营销态状态变更，当前状态:', this.props.componentProps.promotionState);
+    }
   },
-
   didUnmount() {
     getLifecycleSdk().didUnmount(this.props.componentName);
     // 业务代码写到下方
-
+    getSdk().removeCustomEvent('onShow', this.onShowListener);
   },
   methods: {
+    // 判断是不是营销状态
+    isPromotionState (){
+      // 营销态时，需要打开tryoutAddress，其余时候正常打开（一般与应用相关，插件自行处理）
+      const {promotionState, tryoutAddress} = this.props.componentProps;
+      if (promotionState === PROMOTION_STATE_TRYOUT && tryoutAddress) { 
+        getSdk().openApp({
+          url: tryoutAddress,
+        });
+        return true;
+      }
+      return false;
+    },
     async handleLink (){
-      // alert({
-      //   message: "点击了",
-      //   title: "提示",//可传空
-      //   buttonName: "收到",
-      // }).then(() => {
-      //   console.log('success');
-      //     //成功即相当于 onSuccess
-      // }, () => {
-      //   console.log('onFail');
-      //     //失败即相当于 onFail
-      // });
-      const datas = await getSdk().getSystemInfo();
-      console.log(datas,'getSdk().getSystemInfo()',this);
       const isMobile = !this.props.config.platform == 'pc';
       const times = ++this.data.clickTime;
       this.setData({
@@ -105,20 +103,6 @@ Component({
           result: JSON.stringify(error)
         });
       }
-     
-    },
-    handleChart(){
-      // alert({
-      //   message: "点击charts",
-      //   title: "提示",//可传空
-      //   buttonName: "收到",
-      // }).then(() => {
-      //   console.log('success');
-      //     //成功即相当于 onSuccess
-      // }, () => {
-      //   console.log('onFail');
-      //     //失败即相当于 onFail
-      // });
     },
     onInitChart(F2, config) {
       const chart = new F2.Chart(config);

@@ -1,6 +1,7 @@
 {
   "publicComponents": {
-    "financial-dashboard": "components/financial-dashboard/index"
+    "financial-dashboard": "components/financial-dashboard/index",
+    "chart": "components/chart/index"
   },
   "main": "index.js"
 }

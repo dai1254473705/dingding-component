@@ -1,6 +1,10 @@
 {
   "defaultTitle": "标准化组件开发DEMO",
   "usingComponents": {
-    "financial-dashboard": "plugin://myPlugin/financial-dashboard"
+    "financial-dashboard": "plugin://myPlugin/financial-dashboard",
+    "chart": "plugin://myPlugin/chart",
+    "component-title-bar": "../../componnets/component-title-bar/index",
+    "view-container": "../../componnets/view-container/index",
+    "component-item": "../../componnets/component-item/index"
   }
 }

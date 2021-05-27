@@ -1,39 +1,45 @@
-import { componentsData } from '../../mock/componentsData';
+import { componentsData } from "../../mock/componentsData";
 
 Page({
   data: {
     sdkReady: false,
     componentsData: componentsData,
+    locale: 'zh_CN',
+    // light dark ，mock时两种可选
+    mode: 'light',
     config: {
-      corpId:'',
+      corpId: ""
     }
   },
   onLoad(query) {
-    if (!dd.canIUse('plugin.dynamic')) {
+    if (!dd.canIUse("plugin.dynamic")) {
       dd.alert({
-        title: '温馨提示',
-        content: '此工程示例依赖动态插件功能。请在app.json文件中添加"useDynamicPlugins":true配置声明。',
+        title: "温馨提示",
+        content:
+          '此工程示例依赖动态插件功能。请在app.json文件中添加"useDynamicPlugins":true配置声明。'
       });
       return;
     }
 
-    this.setData({ config: {
-      corpId: query.corpId,
-    } });
+    this.setData({
+      config: {
+        corpId: query.corpId
+      }
+    });
 
     // 加载SDK包，如果SDK升级，需要修改@后的版本号
     dd.loadPlugin({
-      plugin: '5000000000100449@0.0.2',
+      plugin: "5000000000477928@0.0.5",
       success: () => {
-        this.worktab = requirePlugin('dynamic-plugin://5000000000100449');
-        const plugin = requirePlugin('myPlugin');
+        this.worktab = requirePlugin("dynamic-plugin://5000000000477928");
+        const plugin = requirePlugin("myPlugin");
 
         plugin.registerWorktab(this.worktab);
 
         this.setData({ sdkReady: true });
       },
       fail: e => {
-        console.error('load sdk fail', e);
+        console.error("load sdk fail", e);
       }
     });
   },
@@ -43,8 +49,12 @@ Page({
 
   onShow() {
     // 页面显示
-    if (this.worktab && this.worktab.sdk && this.worktab.sdk.triggerCustomEvent) {
-      this.worktab.sdk.triggerCustomEvent('onShow');
+    if (
+      this.worktab &&
+      this.worktab.sdk &&
+      this.worktab.sdk.triggerCustomEvent
+    ) {
+      this.worktab.sdk.triggerCustomEvent("onShow");
     }
   },
   onHide() {
@@ -52,5 +62,5 @@ Page({
   },
   onUnload() {
     // 页面被关闭
-  },
+  }
 });

@@ -9,7 +9,14 @@
     }
   },
   "window": {
-    "defaultTitle": "定制工作台"
+    "enableWK": "YES",
+    "enableDSL": true,
+    "defaultTitle": "定制工作台",
+    "backgroundColor": "#F5F5F9",
+    "pullRefresh": false,
+    "needPadScale": true,
+    "allowsBounceVertical": "NO",
+    "supportColorScheme": ["light", "dark"]
   },
   "useDynamicPlugins": true
 }

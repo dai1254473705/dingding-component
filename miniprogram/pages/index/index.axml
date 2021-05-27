@@ -1,26 +1,30 @@
-<view class="page-index" a:if="{{sdkReady}}">
- <!--  <project-select-view
-    componentName="{{componentsData['project-select-view'].componentName}}"
-    componentProps="{{componentsData['project-select-view'].props}}"
-    config="{{config}}"
-  >
-  </project-select-view>
-  <statistical-indicator-view
-    componentName="{{componentsData['statistical-indicator-view'].componentName}}"
-    componentProps="{{componentsData['statistical-indicator-view'].props}}"
-    config="{{config}}"
-  >
-  </statistical-indicator-view>
-  <component-template
-    componentName="{{componentsData['component-template'].componentName}}"
-    componentProps="{{componentsData['component-template'].props}}"
-    config="{{config}}"
-  >
-  </component-template>-->
-  <financial-dashboard
-    componentName="{{componentsData['financial-dashboard'].componentName}}"
+<view class="page-index {{mode}}" a:if="{{sdkReady}}">
+  <!-- 确保页面mock时组件外层套一层component-item，模拟官方工作台的情景 -->
+  <component-item
+    mode="{{mode}}"
     componentProps="{{componentsData['financial-dashboard'].props}}"
-    config="{{config}}"
   >
-  </financial-dashboard>
+    <financial-dashboard
+        componentName="{{componentsData['financial-dashboard'].componentName}}"
+        componentProps="{{componentsData['financial-dashboard'].props}}"
+        mode="{{mode}}"
+        config="{{config}}"
+        locale="{{locale}}"
+    >
+    </financial-dashboard>
+  </component-item>
+
+  <component-item
+    mode="{{mode}}"
+    componentProps="{{componentsData['chart'].props}}"
+  >
+    <chart
+        componentName="{{componentsData['chart'].componentName}}"
+        componentProps="{{componentsData['chart'].props}}"
+        mode="{{mode}}"
+        config="{{config}}"
+        locale="{{locale}}"
+    >
+    </chart>
+  </component-item>
 </view>

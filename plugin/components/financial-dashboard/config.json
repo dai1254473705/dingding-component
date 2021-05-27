@@ -2,35 +2,17 @@
   "pluginComponentName": "financial-dashboard",
   "name": "财务看板",
   "icon": "https://static.dingtalk.com/media/lALOB0o7K8yQzJA_144_144.png", 
-  "link":"https://inte-cloud.chanjet.com/ydzee/u7i18242su90/3mfkeifu0g/work.html#/home/company",
   "previewUrl": "https://img.alicdn.com/tfs/TB1KcAWdrj1gK0jSZFOXXc7GpXa-750-100.jpg",
-  "previewHeight": 100,
-  "setters": [{
-    "propName": "marginBottom",
-    "setterName": "SliderSetter",
-    "props": {
-      "label": "下间距",
-      "min": 0,
-      "max": 32
-    }
-  },
-  {
-    "propName": "gateWayApi",
-    "setterName": "SelectApiSetter",
-    "props": {
-      "label": "数据来源"
-    }
-  }],
-  "props": {
-    "marginBottom": 10,
-    "gateWayApi": {}
-  },
+  "previewHeight": 408,
+  "link":"https://inte-cloud.chanjet.com/ydzee/u7i18242su90/wsa9n5g50a/work.html",
+  "props": {},
   "dataSources": [{
     "apiKey": "apikeytest",
     "propName": "apikeytestPropName"
   }],
   "quickSetting": {
     "useStandardHead": true, 
-    "useStandardContainer": true
+    "useStandardContainer": true,
+    "containerType": "doubleHeight"
   }
 }

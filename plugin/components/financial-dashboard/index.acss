@@ -1,9 +1,10 @@
 .financial-dashbord {
+  line-height: 32rpx;
   font-size:24rpx;
-  margin: 24rpx;
-  background: #fff;
-  border: 10rpx;
-  padding: 30rpx;
+  padding: 24rpx 36rpx;
+}
+.financial-dashbord.dark {
+  color: #fff;
 }
 .header{
   padding: 15rpx;
