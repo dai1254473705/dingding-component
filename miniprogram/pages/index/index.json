@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "标准化组件开发DEMO",
+  "usingComponents": {
+    "financial-dashboard": "plugin://myPlugin/financial-dashboard"
+  }
+}

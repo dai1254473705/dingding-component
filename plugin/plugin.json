@@ -1,0 +1,6 @@
+{
+  "publicComponents": {
+    "financial-dashboard": "components/financial-dashboard/index"
+  },
+  "main": "index.js"
+}

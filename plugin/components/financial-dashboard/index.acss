@@ -1,0 +1,51 @@
+.financial-dashbord {
+  font-size:24rpx;
+  margin: 24rpx;
+  background: #fff;
+  border: 10rpx;
+  padding: 30rpx;
+}
+.header{
+  padding: 15rpx;
+  background:url(https://cloud.static.chanjet.com/ydzee/ydz.declare-tax-robot.cafb8d.png) no-repeat left center;
+  background-size: 20rpx;
+  padding-left: 30rpx;
+}
+.finance-detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.finance-right,.finance-left{
+  width: 48%;
+  height: 100%;
+}
+.finance-item,.finance-item-ext{
+  display: flex;
+  flex-direction: column;
+  padding: 42rpx 0;
+}
+.finance-item{
+  background: #eee;
+  padding: 30rpx;
+}
+.finance-left .finance-item{
+  border-radius: 10rpx 0 0 10rpx;
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+.finance-right .finance-item{
+  height: 100%;
+}
+.text-money{
+  color: #333;
+  font-size: 28rpx;
+}
+.finance-item-ext{
+  margin-top: 20rpx;
+}
+.f2-chart {
+  width: 100%;
+  height: 500rpx;
+}
